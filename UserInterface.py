@@ -15,6 +15,7 @@ class UserInterface:
         canvas.pack()
         frame = tk.Frame(root, bg='#80c1ff', bd=5)
         frame.place(relx=0.5, rely=0.1, relwidth=0.75, relheight=0.1, anchor='n')
+        mButton = Button(text="Enter",fg="red",bg="yellow",command=EnterButton.onclick()).pack()
         root.mainloop()
 
     def add(self):
