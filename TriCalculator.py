@@ -1,8 +1,5 @@
 class TriCalculator:
     def cal(self, sideA, sideB, sideC):
-<<<<<<< Updated upstream
-        pass
-=======
     	#some input is 0
     	if sideA == 0:
     		print("error sideA")
@@ -33,4 +30,3 @@ class TriCalculator:
     			#all input are not equal
     			else:
     				print("scalene triangle")
->>>>>>> Stashed changes
