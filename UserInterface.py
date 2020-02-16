@@ -1,4 +1,4 @@
-from tkinter import *
+# from tkinter import *
 import tkinter as tk
 from InputBox import InputBox
 from EnterButton import EnterButton
@@ -25,20 +25,20 @@ class UserInterface:
         canvas2.grid(row=0,column=1)
         
         
-        enterLengthText = Label(root, text="Enter the length of sides", font = "Verdana 16 bold")
+        enterLengthText = tk.Label(root, text="Enter the length of sides", font = "Verdana 16 bold")
         enterLengthText.place(x=20, y=30)
 
 
-        resultText = Label(root, text="Result", font = "Verdana 16 bold")
+        resultText = tk.Label(root, text="Result", font = "Verdana 16 bold")
         resultText.place(x=650,y=30)
 
-        side1Text = Label(root, text="side1", font = "Verdana 14")
+        side1Text = tk.Label(root, text="side1", font = "Verdana 14")
         side1Text.place(x=20,y=110)
 
-        side2Text = Label(root, text="side2", font = "Verdana 14")
+        side2Text = tk.Label(root, text="side2", font = "Verdana 14")
         side2Text.place(x=20,y=210)
 
-        side3Text = Label(root, text="side3", font = "Verdana 14")
+        side3Text = tk.Label(root, text="side3", font = "Verdana 14")
         side3Text.place(x=20,y=310)
         
         # point=[250,110,480,200,280,280,250,110]
