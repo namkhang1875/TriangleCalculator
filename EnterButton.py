@@ -1,15 +1,18 @@
-import tkinter as tk
-from tkinter import *
-# from ResultDisplay import ResultDisplay
-# from TriCalculator import TriCalculator
-
+# import ResultDisplay
 class EnterButton:
-    # triCal = TriCalculator()
-    # resultDisplay = ResultDisplay()
     
+    def __init__(self):
+        
 
     def onClick(self,sideA, sideB, sideC):
-        pass
-        # triType = self.triCal.cal(sideA, sideB, sideC)
-        # # self.resultDisplay.drawTri(sideA, sideB, sideC, triType)
-        # print(triType)
+        from ResultDisplay import ResultDisplay
+        triType = ""
+        # from TriCalculator import TriCalculator     
+        # triCal = TriCalculator()
+        # resultDisplay = ResultDisplay()
+        # triType = triCal.cal(sideA, sideB, sideC)
+        if triType is not None:
+            pass
+            # resultDisplay.drawTri(sideA, sideB, sideC, triType)
+        else:
+            print(triType)

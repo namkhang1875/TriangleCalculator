@@ -1,7 +1,7 @@
 # from tkinter import *
 import tkinter as tk
 from InputBox import InputBox
-from EnterButton import EnterButton
+
 
 H = 600 # กำหนดค่าตัวแปรความสูงหน้าต่างโปรแกรม
 W = 450 # ตัวแปรความกว้าง
@@ -11,28 +11,21 @@ class UserInterface:
     sideB = 4
     sideC = 3
     inputBox = InputBox()
-    enterButton = EnterButton()
+    
     
     # componentList = [inputBox,enterButton,resultDisplay]
-    componentList = [inputBox,enterButton]
-    enterButton.onClick(sideA,sideB,sideC)
+    # componentList = [inputBox,enterButton]
+    # enterButton.onClick(sideA,sideB,sideC)
     
     root = tk.Tk()
     def __init__(self):
-        from ResultDisplay import ResultDisplay
+        from ResultDisplay import ResultDisplay #fix circular import error
         resultDisplay = ResultDisplay()
         resultDisplay.drawTri(self.sideA,self.sideB,self.sideC,"right")
         
         self.root.title("Triangle Calculator")
         canvas = tk.Canvas(self.root, height=H, width=W)
         canvas.grid(row=0,column=0)
-        
-       
-       
-
-        # canvas2 = tk.Canvas(self.root, highlightthickness=1, highlightbackground="black", height=H-200,width=W)
-        # canvas2.grid(row=0,column=1)
-        # canvas2.create_polygon(0, 5, 0, 100, 100, 100)
         
         enterLengthText = tk.Label(self.root, text="Enter the length of sides", font = "Verdana 16 bold")
         enterLengthText.place(x=20, y=30)
@@ -56,6 +49,8 @@ class UserInterface:
         self.root.mainloop()
 
     def add(self,component):
+        from EnterButton import EnterButton
+        enterButton = EnterButton()
         self.componentList.append(component)
 
     def remove(self,component):
