@@ -12,11 +12,16 @@ class UserInterface:
     sideB = 0
     sideC = 0
     inputBox = InputBox()
-
+    componentList = []
+    inputBox1 = ""
+    inputBox2 = ""
+    inputBox3 = ""
     # componentList = [inputBox,enterButton,resultDisplay]
     # componentList = [inputBox,enterButton]
     # enterButton.onClick(sideA,sideB,sideC)
-    
+    # Enterbutton----------------------------------------------
+    from EnterButton import EnterButton
+    enterButton = EnterButton()
     root = tk.Tk()
 
     def __init__(self):
@@ -44,49 +49,19 @@ class UserInterface:
         side3Text = tk.Label(self.root, text="side3", font="Verdana 14")
         side3Text.place(x=20, y=310)
 
-        # point=[250,110,480,200,280,280,250,110]
-        # canvas2.create_polygon(point)
-        # canvas2.create_rectangle(50, 0, 100, 50, outline='black')
-
-        # InputBox----------------------------------------------
-        inputBox1 = tk.Entry(self.root)
-        inputBox1.place(x=140, y=115)
-        inputBox1.insert(0, 0)
-
-        inputBox2 = tk.Entry(self.root)
-        inputBox2.place(x=140, y=215)
-        inputBox2.insert(0, 0)
-
-        inputBox3 = tk.Entry(self.root)
-        inputBox3.place(x=140, y=315)
-        inputBox3.insert(0, 0)
-
-        # self.sideA = inputBox1.get()
-        # self.sideB = inputBox2.get()
-        # self.sideC = inputBox3.get()
-        # Enterbutton----------------------------------------------
-        from EnterButton import EnterButton
-        enterButton = EnterButton()
-        mButton = tk.Button(self.root, text="Enter", fg="red",
-                            bg="yellow", height=3, width=15)
-        mButton.configure(command=self.eventHandler)
-        # mButton.bind("<Button-1>", self.eventHandler())
-        # mButton = tk.Button(self.root, text="Enter", fg="red", bg="yellow", height=3, width=15,
-        #                     command=enterButton.onClick(self.sideA, self.sideB, self.sideC))
-        # mButton = tk.Button(self.root, text="Enter", fg="red", bg="yellow", height=3, width=15,
-        #                     command=enterButton.onClick(5, 4, 3))
-        mButton.place(x=150, y=450)
-
+        self.add("EnterButton")
+        self.add("InputBox")
+        self.show()
         self.root.mainloop()
 
     def eventHandler(self):
-        print('Heart')
-        # self.enterButton.onClick(int(self.inputBox1.get()),
-        #                          int(self.inputBox2.get()), int(self.inputBox3.get()))
+        # print('Heart')
+        self.enterButton.onClick(int(self.inputBox1.get()),
+                                 int(self.inputBox2.get()), int(self.inputBox3.get()))
 
     def add(self, component):
-        from EnterButton import EnterButton
-        enterButton = EnterButton()
+        # from EnterButton import EnterButton
+        # enterButton = EnterButton()
         self.componentList.append(component)
 
     def remove(self, component):
@@ -94,9 +69,21 @@ class UserInterface:
 
     def show(self):
         for i in self.componentList:
-            if i == InputBox:
-                pass
-            elif i == EnterButton:
-                pass
-            elif i == ResultDisplay:
-                pass
+            if i == "InputBox":
+                # pass
+                self.inputBox1 = tk.Entry(self.root)
+                self.inputBox1.place(x=140, y=115)
+                self.inputBox1.insert(0, 0)
+
+                self.inputBox2 = tk.Entry(self.root)
+                self.inputBox2.place(x=140, y=215)
+                self.inputBox2.insert(0, 0)
+
+                self.inputBox3 = tk.Entry(self.root)
+                self.inputBox3.place(x=140, y=315)
+                self.inputBox3.insert(0, 0)
+            elif i == "EnterButton":
+                mButton = tk.Button(self.root, text="Enter", fg="red",
+                                    bg="yellow", height=3, width=15)
+                mButton.configure(command=self.eventHandler)
+                mButton.place(x=150, y=450)
