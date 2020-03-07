@@ -1,3 +1,9 @@
+
+import tkinter as tk
+from tkinter import *
+import ResultDisplay
+import TriCalculator
+
 class EnterButton:
     def onClick(self,sideA, sideB, sideC):
         from ResultDisplay import ResultDisplay
