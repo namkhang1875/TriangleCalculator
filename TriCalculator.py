@@ -1,6 +1,6 @@
 class TriCalculator:
-    def __init__(self):
-        print("hello")
+    # def __init__(self):
+    #     print("hello")
 
     def cal(self, sideA, sideB, sideC):
 

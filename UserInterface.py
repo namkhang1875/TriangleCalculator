@@ -16,13 +16,13 @@ class UserInterface:
     # componentList = [inputBox,enterButton,resultDisplay]
     # componentList = [inputBox,enterButton]
     # enterButton.onClick(sideA,sideB,sideC)
-
+    
     root = tk.Tk()
 
     def __init__(self):
-        from ResultDisplay import ResultDisplay  # fix circular import error
-        resultDisplay = ResultDisplay()
-        resultDisplay.drawTri(self.sideA, self.sideB, self.sideC, "right")
+        # from ResultDisplay import ResultDisplay  # fix circular import error
+        # resultDisplay = ResultDisplay()
+        # resultDisplay.drawTri(self.sideA, self.sideB, self.sideC, "right")
 
         self.root.title("Triangle Calculator")
         canvas = tk.Canvas(self.root, height=H, width=W)
@@ -64,12 +64,13 @@ class UserInterface:
         # self.sideA = inputBox1.get()
         # self.sideB = inputBox2.get()
         # self.sideC = inputBox3.get()
-
         # Enterbutton----------------------------------------------
         from EnterButton import EnterButton
         enterButton = EnterButton()
-        mButton = tk.Button(self.root, text="Enter", fg="red", bg="yellow", height=3, width=15,
-                            command=enterButton.onClick(int(inputBox1.get()), int(inputBox2.get()), int(inputBox3.get())))
+        mButton = tk.Button(self.root, text="Enter", fg="red",
+                            bg="yellow", height=3, width=15)
+        mButton.configure(command=self.eventHandler)
+        # mButton.bind("<Button-1>", self.eventHandler())
         # mButton = tk.Button(self.root, text="Enter", fg="red", bg="yellow", height=3, width=15,
         #                     command=enterButton.onClick(self.sideA, self.sideB, self.sideC))
         # mButton = tk.Button(self.root, text="Enter", fg="red", bg="yellow", height=3, width=15,
@@ -77,6 +78,11 @@ class UserInterface:
         mButton.place(x=150, y=450)
 
         self.root.mainloop()
+
+    def eventHandler(self):
+        print('Heart')
+        # self.enterButton.onClick(int(self.inputBox1.get()),
+        #                          int(self.inputBox2.get()), int(self.inputBox3.get()))
 
     def add(self, component):
         from EnterButton import EnterButton
