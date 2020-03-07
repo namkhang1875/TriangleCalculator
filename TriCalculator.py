@@ -4,7 +4,7 @@ class TriCalculator:
 
     def cal(self, sideA, sideB, sideC):
 
-    # some input is 0
+        # some input is 0
         if sideA == 0:
             print("error sideA")
         elif sideB == 0:
@@ -17,10 +17,10 @@ class TriCalculator:
             c = pow(sideC, 2)
             # all input is equal
             if sideA == sideB and sideA == sideC:
-                return "right triangle"
-            # 2-input is equal
+                return "equilateral triangle"
+            #2-input is equal
             elif sideA == sideB or sideA == sideC or sideB == sideC:
-                return "right triangle"
+                return "isosceles triangle"
             else:
                 # a is the most
                 if a > b and a > c and a == b + c:
@@ -33,6 +33,6 @@ class TriCalculator:
                     return "right triangle"
                 # all input are not equal
                 else:
-                    return "right triangle"
+                    return "scalene triangle"
 # t = TriCalculator()
 # t.cal(5,4,3)
