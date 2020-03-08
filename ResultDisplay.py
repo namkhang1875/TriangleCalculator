@@ -14,7 +14,7 @@ class ResultDisplay:
     def drawTri(self, sideA, sideB, sideC, triType):
         from UserInterface import UserInterface
         canvas2 = tk.Canvas(UserInterface.root, highlightthickness=1,
-                            highlightbackground="black", height=400, width=650)
+                            highlightbackground="black", height=400, width=550)
         # print(self.canvas2)
         print(triType)
 
@@ -73,5 +73,6 @@ class ResultDisplay:
         if abs((sideC - dx)**2 + hc**2 - sideA**2) > 0.01:
             dx = -dx  # dx has two solutions
         C = (dx, hc)
-        coords = [int((x + 1) * 35) for x in A+B+C]
+        # coords = [int((x + 1) * 35) for x in A+B+C]
+        coords = [(x + 1) * 35 for x in A+B+C]
         canvas2.create_polygon(*coords)

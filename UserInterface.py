@@ -1,6 +1,7 @@
 # from tkinter import *
 import tkinter as tk
 from InputBox import InputBox
+from tkinter import messagebox
 
 
 H = 600  # กำหนดค่าตัวแปรความสูงหน้าต่างโปรแกรม
@@ -11,7 +12,7 @@ class UserInterface:
     sideA = 0
     sideB = 0
     sideC = 0
-    inputBox = InputBox()
+
     componentList = []
     inputBox1 = ""
     inputBox2 = ""
@@ -38,7 +39,7 @@ class UserInterface:
         enterLengthText.place(x=20, y=30)
 
         resultText = tk.Label(self.root, text="Result", font="Verdana 16 bold")
-        resultText.place(x=650, y=30)
+        resultText.place(x=700, y=30)
 
         side1Text = tk.Label(self.root, text="side1", font="Verdana 14")
         side1Text.place(x=20, y=110)
@@ -56,8 +57,32 @@ class UserInterface:
 
     def eventHandler(self):
         # print('Heart')
-        self.enterButton.onClick(int(self.inputBox1.get()),
-                                 int(self.inputBox2.get()), int(self.inputBox3.get()))
+        # input1 = int(self.inputBox1.get())
+        # input2 = int(self.inputBox2.get())
+        # input3 = int(self.inputBox3.get())
+        inputBoxObject1 = InputBox(self.inputBox1.get())
+        checkEmpty1 = inputBoxObject1.isEmpty()
+        checkNumber1 = inputBoxObject1.isNumber()
+        input1 = inputBoxObject1.getValue()
+
+        inputBoxObject2 = InputBox(self.inputBox2.get())
+        checkEmpty2 = inputBoxObject2.isEmpty()
+        checkNumber2 = inputBoxObject2.isNumber()
+        input2 = inputBoxObject2.getValue()
+
+        inputBoxObject3 = InputBox(self.inputBox3.get())
+        checkEmpty3 = inputBoxObject3.isEmpty()
+        checkNumber3 = inputBoxObject3.isNumber()
+        input3 = inputBoxObject3.getValue()
+
+        self.enterButton.onClick(input1,
+                                 input2, input3)
+        if checkEmpty1 or checkEmpty2 or checkEmpty3:
+            messagebox.showinfo("Caution", "Please insert input")
+        elif not checkNumber1 or not checkNumber2 or not checkNumber3:
+            messagebox.showinfo("Caution", "Input must be number")
+        elif input1 == 0 or input2 == 0 or input3 == 0:
+            messagebox.showinfo("Caution", "Input cannot be zero")
 
     def add(self, component):
         # from EnterButton import EnterButton

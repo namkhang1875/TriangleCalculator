@@ -1,4 +1,5 @@
 class InputBox:
+    value = 0
     def __init__(self, value=""):
         self.value = value
 
