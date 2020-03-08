@@ -80,7 +80,8 @@ class UserInterface:
         if checkEmpty1 or checkEmpty2 or checkEmpty3:
             messagebox.showinfo("Caution", "Please insert input")
         elif not checkNumber1 or not checkNumber2 or not checkNumber3:
-            messagebox.showinfo("Caution", "Input must be number")
+            messagebox.showinfo(
+                "Caution", "Input must be positive integer or positive float")
         elif input1 == 0 or input2 == 0 or input3 == 0:
             messagebox.showinfo("Caution", "Input cannot be zero")
 
