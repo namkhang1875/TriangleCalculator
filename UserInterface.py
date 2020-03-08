@@ -1,4 +1,4 @@
-# from tkinter import *
+
 import tkinter as tk
 from InputBox import InputBox
 from tkinter import messagebox
@@ -17,18 +17,13 @@ class UserInterface:
     inputBox1 = ""
     inputBox2 = ""
     inputBox3 = ""
-    # componentList = [inputBox,enterButton,resultDisplay]
-    # componentList = [inputBox,enterButton]
-    # enterButton.onClick(sideA,sideB,sideC)
+
     # Enterbutton----------------------------------------------
     from EnterButton import EnterButton
     enterButton = EnterButton()
     root = tk.Tk()
 
     def __init__(self):
-        # from ResultDisplay import ResultDisplay  # fix circular import error
-        # resultDisplay = ResultDisplay()
-        # resultDisplay.drawTri(self.sideA, self.sideB, self.sideC, "right")
 
         self.root.title("Triangle Calculator")
         canvas = tk.Canvas(self.root, height=H, width=W)
@@ -57,9 +52,7 @@ class UserInterface:
 
     def eventHandler(self):
         # print('Heart')
-        # input1 = int(self.inputBox1.get())
-        # input2 = int(self.inputBox2.get())
-        # input3 = int(self.inputBox3.get())
+
         inputBoxObject1 = InputBox(self.inputBox1.get())
         checkEmpty1 = inputBoxObject1.isEmpty()
         checkNumber1 = inputBoxObject1.isNumber()
@@ -86,8 +79,6 @@ class UserInterface:
             messagebox.showinfo("Caution", "Input cannot be zero")
 
     def add(self, component):
-        # from EnterButton import EnterButton
-        # enterButton = EnterButton()
         self.componentList.append(component)
 
     def remove(self, component):
