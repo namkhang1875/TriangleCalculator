@@ -11,18 +11,18 @@ class ResultDisplay:
         print(triType)
         canvas2.grid(row=0, column=1)
 
-        # if sideA > 12 and sideB > 12 and sideC > 12:
-        #     if sideA % 12 == 0:
-        #         sideA += 1
-        #     sideA = sideA % 12
+        if sideA > 12 and sideB > 12 and sideC > 12:
+            if sideA % 12 == 0:
+                sideA += 1
+            sideA = sideA % 12
 
-        #     if sideB % 12 == 0:
-        #         sideB += 1
-        #     sideB = sideB % 12
+            if sideB % 12 == 0:
+                sideB += 1
+            sideB = sideB % 12
 
-        #     if sideC % 12 == 0:
-        #         sideC += 1
-        #     sideC = sideC % 12
+            if sideC % 12 == 0:
+                sideC += 1
+            sideC = sideC % 12
 
         A = (0, 0)
         B = (sideC, 0)
